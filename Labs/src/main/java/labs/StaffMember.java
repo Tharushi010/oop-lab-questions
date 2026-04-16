@@ -47,4 +47,18 @@ public abstract class StaffMember {
 
     /*staffCount is static because it is shared among all objects and keeps track 
     of the total number of staff members created.*/
+    
+    public void changeDepartment(String newDepartment) {
+    if (newDepartment != null && !newDepartment.trim().isEmpty()) {
+        this.department = newDepartment;
+    }
+}
+
+// notice for all staff
+public final void showCommonNotice() {
+    System.out.println("Notice: All staff must follow university rules and regulations.");
+}
+
+/* changeDepartment(...) is useful because it ensures controlled updates,
+preventing invalid or empty values from being assigned.*/
 }
