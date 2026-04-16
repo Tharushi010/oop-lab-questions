@@ -5,13 +5,17 @@ public abstract class StaffMember {
 
    private String fullName; 
    private final String staffID; 
-   
    protected String department; 
-   public StaffMember(String fullName, String staffID, String Department) 
+   
+   private static int staffCount = 0;
+
+   public StaffMember(String fullName, String staffID, String department) 
    { 
        this.fullName = fullName; 
        this.staffID = staffID; 
        this.department = department; 
+       
+       staffCount++; 
    } 
    public String getFullName() 
    { 
@@ -32,4 +36,15 @@ public abstract class StaffMember {
        System.out.println("Department: " + department); 
    }
     public abstract double calculateMonthlyPayment();  
+    
+    public static void showSystemName() {
+        System.out.println("--- University Staff Management System ---");
+    }
+
+    public static int getStaffCount() {
+        return staffCount;
+    }
+
+    /*staffCount is static because it is shared among all objects and keeps track 
+    of the total number of staff members created.*/
 }
