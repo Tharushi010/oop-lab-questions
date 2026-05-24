@@ -1,0 +1,53 @@
+package lab06;
+public class Appointment {
+    private String patientName;
+    private String appointmentType;
+    private String patientCategory;
+    private double baseFee;
+
+    public Appointment(String patientName, String appointmentType,
+                       String patientCategory, double baseFee) {
+        this.patientName = patientName;
+        this.appointmentType = appointmentType;
+        this.patientCategory = patientCategory;
+        this.baseFee = baseFee;
+    }
+
+    public String getPatientName() {
+        return patientName;
+    }
+    public String getAppointmentType() {
+        return appointmentType;
+    }
+    public String getPatientCategory() {
+        return patientCategory;
+    }
+    public double getBaseFee() {
+        return baseFee;
+    }
+    public double calculateFinalFee() {
+        double fee = baseFee;
+        if (appointmentType.equals("Specialist")) {
+            fee += 1500;
+        } else if (appointmentType.equals("Online")) {
+            fee -= 500;
+        }
+
+        if (patientCategory.equals("Child")) {
+            fee -= 300;
+        } else if (patientCategory.equals("Senior")) {
+            fee -= 500;
+        }
+        return fee;
+    }
+
+    public String getAppointmentMessage() {
+        if (appointmentType.equals("General")) {
+            return "General appointment selected";
+        } else if (appointmentType.equals("Specialist")) {
+            return "Specialist appointment selected";
+        } else {
+            return "Online appointment selected";
+        }
+    }
+}
